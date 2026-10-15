@@ -1,4 +1,6 @@
 (function(){
+  // Re-align to #section links once fonts and images have settled the layout
+  if(location.hash.length>1){window.addEventListener('load',function(){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView({block:'start'});});}
   var nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
   menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
 

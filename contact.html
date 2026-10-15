@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Contact · Inclined</title>
+<meta name="description" content="Inclined ensures complex government programs perform by connecting policy, systems, data, and operations to deliver real-world results.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preload" href="fonts/Alcyone-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Alcyone-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Inclined home"><img src="images/logo.svg" alt="Inclined" width="150" height="34"></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="capabilities.html" data-nav="capabilities">Capabilities</a>
+      <a href="leadership.html" data-nav="leadership">Leadership</a>
+      <a href="about.html" data-nav="about">About</a>
+      <a href="careers.html" data-nav="careers">Careers</a>
+      <a class="btn btn-primary" href="contact.html" data-nav="contact" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="navy page-hero rise-bottom">
+    <div class="wrap stack" style="gap:24px">
+      <span class="eyebrow">Contact</span>
+      <h1 style="font-size:var(--step-4)">Let’s Solve What’s Next.</h1>
+      <p class="lede">Whether you’re tackling a complex challenge or looking for a better way forward, we’re ready to understand the problem and explore how we can help.</p>
+    </div>
+  </section>
+
+  <section class="band tight pull-up" style="position:relative">
+    <div class="wrap contact-grid">
+      <form id="contactForm" novalidate>
+        <div class="f2">
+          <div><label for="cf-name">Name <span class="req">(required)</span></label><input id="cf-name" name="name" autocomplete="name" required></div>
+          <div><label for="cf-email">Email <span class="req">(required)</span></label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="f2">
+          <div><label for="cf-phone">Phone</label><input id="cf-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <fieldset><span class="legend">Sector</span><div class="seg">
+            <input type="radio" id="cf-s-private" name="sector" value="Private"><label for="cf-s-private">Private</label>
+            <input type="radio" id="cf-s-public" name="sector" value="Public"><label for="cf-s-public">Public</label>
+            <input type="radio" id="cf-s-ngo" name="sector" value="NGO"><label for="cf-s-ngo">NGO</label>
+          </div></fieldset>
+        </div>
+        <div><label for="cf-msg">Message <span class="req">(required)</span></label><textarea id="cf-msg" name="message" required></textarea></div>
+        <div class="err" id="cf-err" hidden></div>
+        <div class="form-status" id="cf-status" role="status" hidden></div>
+        <div><button class="btn btn-primary" type="submit">Send Message <svg class="arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></button></div>
+      </form>
+
+      <aside class="info">
+        <div class="blk"><span class="lbl">Inclined</span><address>4501 N. Fairfax Drive<br>Suite 700<br>Arlington, VA 22203</address></div>
+        <div class="blk"><span class="lbl">Phone</span><a class="big" href="tel:+17032432992">703-243-2992</a></div>
+        <div class="blk"><span class="lbl">Email</span><a class="big" href="mailto:hello@inclinedanalytics.com">hello@inclinedanalytics.com</a><button class="copy" type="button" data-copy="hello@inclinedanalytics.com">Copy email</button></div>
+        <div class="blk"><span class="lbl">Contract vehicles</span><span class="pending">GSA Schedule <small style="font-weight:400">· link to come</small></span></div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html" aria-label="Inclined home"><img src="images/logo-white.svg" alt="Inclined" width="170" height="38"></a>
+        <p class="signoff">Insight. <span>Elevated.</span></p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="capabilities.html">Capabilities</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li></ul></div>
+      <div><h4>Contact</h4><address>4501 N. Fairfax Drive<br>Suite 700<br>Arlington, VA 22203</address></div>
+      <div><h4>Reach us</h4><ul><li><a href="tel:+17032432992">703-243-2992</a></li><li><a href="mailto:hello@inclinedanalytics.com">hello@inclinedanalytics.com</a></li><li><a href="contact.html">Partner With Inclined</a></li></ul></div>
+    </div>
+    <div class="foot-base"><span>© 2026 Inclined. A woman-owned small business.</span><span>Arlington, Virginia</span></div>
+  </div>
+</footer>
+
+<script src="js/site.js" defer></script>
+</body>
+</html>

@@ -9,6 +9,7 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="preload" href="fonts/Alcyone-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/Alcyone-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="images/arch1-hero.webp" imagesrcset="images/arch1-hero-1000.webp 1000w, images/arch1-hero.webp 2000w" imagesizes="100vw">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -31,18 +32,22 @@
 </header>
 
 <main id="main">
-  <section class="hero navy rise-bottom" style="padding-top:clamp(48px,7vw,104px)">
-    <div class="wrap hero-grid">
-      <div class="stack" style="gap:28px">
-        <h1 class="tag"><span>Insight.</span><span>Elevated.</span></h1>
-        <h2 class="positioning">Operational intelligence for programs that must perform at scale</h2>
-        <p class="lede">Inclined ensures complex government programs perform by connecting policy, systems, data, and operations to deliver real-world results.</p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn btn-teal" href="capabilities.html">Explore Our Capabilities <svg class="arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></a>
-          <a class="btn btn-ghost" href="contact.html">Partner With Inclined</a>
+  <section class="hero">
+    <div class="hero-frame">
+      <img class="hero-img" src="images/arch1-hero.webp" srcset="images/arch1-hero-1000.webp 1000w, images/arch1-hero.webp 2000w" sizes="100vw" alt="Glass towers seen from below, joined by a skybridge" width="2000" height="1342" fetchpriority="high">
+      <span class="hero-band b1" aria-hidden="true"></span>
+      <span class="hero-band b2" aria-hidden="true"></span>
+      <div class="wrap hero-content">
+        <div class="hero-copy">
+          <h1 class="tag"><span>Insight.</span><span>Elevated.</span></h1>
+          <h2 class="positioning">Operational intelligence for programs that must perform at scale</h2>
+          <p class="lede">Inclined ensures complex government programs perform by connecting policy, systems, data, and operations to deliver real-world results.</p>
+          <div class="row" style="margin-top:6px">
+            <a class="btn btn-white" href="capabilities.html">Explore Our Capabilities <svg class="arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></a>
+            <a class="btn btn-ocean" href="contact.html">Partner With Inclined</a>
+          </div>
         </div>
       </div>
-      <div class="hero-photo"><img src="images/arch1.jpg" srcset="images/arch1-900.jpg 900w, images/arch1.jpg 1800w" sizes="(max-width: 860px) 100vw, 50vw" alt="Glass towers seen from below, joined by a skybridge" width="900" height="1125"></div>
     </div>
   </section>
 
@@ -130,7 +135,7 @@
   <section class="band navy cta rise-top">
     <div class="wrap">
       <h2>Let's Build Better Government Programs Together.</h2>
-      <div class="side"><p class="lede">Whether you're modernizing a mission-critical system, improving operational performance, or looking for a trusted strategic partner, we are here to help you succeed.</p><a class="btn btn-teal" href="contact.html">Partner With Inclined <svg class="arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
+      <div class="side"><p class="lede">Whether you're modernizing a mission-critical system, improving operational performance, or looking for a trusted strategic partner, we are here to help you succeed.</p><a class="btn btn-white" href="contact.html">Partner With Inclined <svg class="arr" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11L11 3M5 3h6v6"/></svg></a></div>
     </div>
   </section>
 </main>

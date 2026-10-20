@@ -59,7 +59,7 @@ img{max-width:100%;display:block}
 
 /* buttons (from the INCLINED Figma file): 44px, 45-degree top-left cut, 13px label, arrow turns up on hover */
 .btn{--btn-bg:transparent;--btn-fg:var(--navy);--btn-line:transparent;--btn-arrow:var(--ocean);
-  position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;padding:var(--btn-nudge,3.5px) 17px 0;
+  position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:var(--btn-nudge,3.5px) 17px 0;
   font:400 .875rem/1.2 var(--font);letter-spacing:.01em;text-decoration:none;cursor:pointer;
   color:var(--btn-fg);background:var(--btn-bg);border:0;border-radius:0 2px 2px 2px;
   clip-path:polygon(10px 0,100% 0,100% 100%,0 100%,0 10px);
@@ -100,7 +100,7 @@ img{max-width:100%;display:block}
 .nav a:not(.btn):hover{color:var(--navy)}
 .nav a:not(.btn)[aria-current="page"]{color:var(--navy)}
 .nav a:not(.btn)[aria-current="page"]::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--teal)}
-.nav .btn{margin-left:20px;gap:12px;padding-left:14px;padding-right:12px}
+.nav .btn{margin-left:20px;gap:12px;padding-left:14px;padding-right:13px}
 .nav .btn[aria-current="page"]{--btn-bg:var(--navy);--btn-fg:var(--white);--btn-line:var(--navy)}
 .menu-btn{display:none;background:none;border:0;padding:10px;margin-right:-10px;cursor:pointer;color:var(--navy)}
 .menu-btn svg{width:26px;height:26px}

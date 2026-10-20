@@ -115,7 +115,7 @@ img{max-width:100%;display:block}
 
 /* hero: framed photo, 45-degree corner cut, diagonal bands */
 .hero{background:var(--white);padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-bottom:12px}
-.hero-frame{position:relative;overflow:hidden;display:flex;align-items:center;min-height:min(780px,calc(100svh - 92px));background:linear-gradient(180deg,var(--teal) 0%,var(--ice) 100%);clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut))}
+.hero-frame{position:relative;overflow:hidden;display:flex;align-items:center;min-height:min(780px,calc(100svh - 92px));background:linear-gradient(180deg,var(--teal) 0%,var(--ice) 100%);border-radius:0 8px 8px 8px;clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut))}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 50%}
 .hero-frame::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(9,51,96,.5) 0%,rgba(9,51,96,.22) 38%,rgba(9,51,96,0) 62%)}
 .hero-band{position:absolute;right:0;bottom:0;aspect-ratio:1/1;width:auto;z-index:2;clip-path:polygon(100% 0,100% 100%,0 100%)}

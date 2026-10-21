@@ -167,12 +167,11 @@ img{max-width:100%;display:block}
 .hardest-mark{position:absolute;z-index:0;left:25%;top:clamp(0px,.6vw,10px);width:75%;height:auto;pointer-events:none}
 .hardest-grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(32px,4.6vw,72px)}
 .hardest-title{grid-column:1 / span 10;max-width:12.3em;font-size:clamp(2.25rem,4.625vw,4.625rem);line-height:1.216;letter-spacing:-.01em;
-  background:linear-gradient(141.52deg,var(--navy) 12.93%,var(--ocean) 66.08%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  color:#269BBB}
 .hardest-title .line2{display:block}
-/* "Making Them Work." carries its own gradient and a 9px ice underline (9px at 74px type) */
-.hardest-title .hl{background:linear-gradient(153.55deg,var(--navy) -55%,var(--ocean) 12%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  position:relative}
-.hardest-title .hl-u{background:linear-gradient(var(--ice),var(--ice)) no-repeat 0 98% / 100% .122em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* "Making Them Work." in coral with a coral underline set below the descenders */
+.hardest-title .hl{color:var(--coral);position:relative}
+.hardest-title .hl-u{background:linear-gradient(var(--coral),var(--coral)) no-repeat 0 100% / 100% .122em;padding-bottom:.07em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .hardest-body{grid-column:5 / span 8;max-width:31em;font-size:clamp(1.0625rem,1.45vw,1.4375rem);line-height:1.6;color:var(--navy)}
 /* How We Work */
 .hw{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin-top:clamp(64px,12.4vw,198px)}

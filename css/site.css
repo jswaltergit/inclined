@@ -162,11 +162,14 @@ img{max-width:100%;display:block}
 
 /* home section 2 (Figma "Homepage Section 2"): gradient statement over a faint oversized logomark */
 .hardest{position:relative;overflow-x:clip;overflow-y:visible;background:var(--offwhite);padding-block:clamp(88px,9.5vw,152px)}
-.hardest-mark{position:absolute;z-index:0;left:18%;top:0;width:80%;height:auto;pointer-events:none}
+.hardest-mark{position:absolute;z-index:0;left:19.06%;top:clamp(0px,.6vw,10px);width:80.94%;height:auto;pointer-events:none}
 .hardest-grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(32px,3.6vw,56px)}
 .hardest-title{grid-column:1 / span 9;max-width:12.6em;font-size:clamp(2rem,1.1rem + 2.4vw,3.25rem);line-height:1.15;letter-spacing:-.01em;
-  background:linear-gradient(131.73deg,var(--navy) 12.93%,var(--ocean) 66.08%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-.hardest-title span{display:block}
+  background:linear-gradient(138.1deg,var(--navy) 12.93%,var(--ocean) 66.08%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.hardest-title .line2{display:block}
+/* "Making Them Work." carries its own gradient and a 9px ice underline (Figma: 9px at 65px type) */
+.hardest-title .hl{background:linear-gradient(150.69deg,var(--navy) -55%,var(--ocean) 12%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  text-decoration-line:underline;text-decoration-color:var(--ice);text-decoration-thickness:.138em;text-underline-offset:.2em;text-decoration-skip-ink:none}
 .hardest-body{grid-column:5 / span 8;max-width:31em;font-size:clamp(1.0625rem,.93rem + .4vw,1.1875rem);line-height:1.65;color:var(--navy)}
 @media (max-width:860px){.hardest-title,.hardest-body{grid-column:1 / -1}.hardest-mark{left:-4%;width:112%}}
 

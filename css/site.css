@@ -100,11 +100,12 @@ img{max-width:100%;display:block}
 .site-head.is-scrolled .logo{width:clamp(112px,8.5vw,128px)}
 .logo img{width:100%;height:auto}
 .nav{display:flex;align-items:center;gap:4px}
-.nav a:not(.btn){font-weight:400;font-size:1rem;text-decoration:none;padding:10px 14px;color:var(--navy);position:relative}
+.nav a:not(.btn){font-weight:400;font-size:.875rem;text-decoration:none;padding:10px 14px;color:var(--navy);position:relative}
 .nav a:not(.btn):hover{color:var(--navy)}
 .nav a:not(.btn)[aria-current="page"]{color:var(--navy)}
 .nav a:not(.btn)[aria-current="page"]::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--teal)}
-.nav .btn{margin-left:20px;gap:12px;padding-left:14px;padding-right:13px}
+.nav .btn{margin-left:20px;gap:12px;padding-left:14px;padding-right:13px;transition:min-height .3s ease,background-color .2s ease,color .2s ease}
+.site-head.is-scrolled .nav .btn{min-height:36px}
 .nav .btn[aria-current="page"]{--btn-bg:var(--navy);--btn-fg:var(--white);--btn-line:var(--navy)}
 .menu-btn{display:none;background:none;border:0;padding:10px;margin-right:-10px;cursor:pointer;color:var(--navy)}
 .menu-btn svg{width:26px;height:26px}

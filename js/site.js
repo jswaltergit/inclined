@@ -1,6 +1,10 @@
 (function(){
   // Re-align to #section links once fonts and images have settled the layout
   if(location.hash.length>1){window.addEventListener('load',function(){var t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView({block:'start'});});}
+  // Sticky header: full size at the top of the page, compact once scrolled
+  var head=document.querySelector('.site-head');
+  function onScroll(){head.classList.toggle('is-scrolled',window.scrollY>24);}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   var nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
   menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
 

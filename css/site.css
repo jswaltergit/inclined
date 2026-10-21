@@ -129,7 +129,7 @@ img{max-width:100%;display:block}
 }
 
 /* hero: framed photo, 45-degree corner cut, diagonal bands */
-.hero{background:var(--white);padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-bottom:12px}
+.hero{background:linear-gradient(180deg,var(--white) 30%,var(--offwhite) 100%);padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));padding-bottom:12px}
 .hero-frame{position:relative;overflow:hidden;display:flex;align-items:center;min-height:min(780px,calc(100svh - 92px));background:linear-gradient(180deg,var(--teal) 0%,var(--ice) 100%);border-radius:0 8px 8px 8px;clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut))}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 50%}
 .hero-frame::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(9,51,96,.5) 0%,rgba(9,51,96,.22) 38%,rgba(9,51,96,0) 62%)}
@@ -161,14 +161,17 @@ img{max-width:100%;display:block}
 @media (max-width:860px){.page-hero .grid{grid-template-columns:1fr}.page-hero .side-photo{aspect-ratio:16/9}}
 
 /* home section 2 (Figma "Homepage Section 2"): gradient statement over a faint oversized logomark */
-.hardest{position:relative;overflow:hidden;background:var(--offwhite);padding-block:clamp(88px,9.5vw,152px)}
-.hardest-mark{position:absolute;left:18%;top:0;width:80%;height:auto;pointer-events:none}
+.hardest{position:relative;overflow-x:clip;overflow-y:visible;background:var(--offwhite);padding-block:clamp(88px,9.5vw,152px)}
+.hardest-mark{position:absolute;z-index:0;left:18%;top:0;width:80%;height:auto;pointer-events:none}
 .hardest-grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(32px,3.6vw,56px)}
 .hardest-title{grid-column:1 / span 9;max-width:12.6em;font-size:clamp(2rem,1.1rem + 2.4vw,3.25rem);line-height:1.15;letter-spacing:-.01em;
   background:linear-gradient(131.73deg,var(--navy) 12.93%,var(--ocean) 66.08%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .hardest-title span{display:block}
 .hardest-body{grid-column:5 / span 8;max-width:31em;font-size:clamp(1.0625rem,.93rem + .4vw,1.1875rem);line-height:1.65;color:var(--navy)}
 @media (max-width:860px){.hardest-title,.hardest-body{grid-column:1 / -1}.hardest-mark{left:-4%;width:112%}}
+
+/* How We Work shares section 2's gray; the logomark continues behind it */
+.how{position:relative;z-index:1;background:transparent}
 
 /* split blocks */
 .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px);align-items:start}

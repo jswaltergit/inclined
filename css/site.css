@@ -249,11 +249,25 @@ img{max-width:100%;display:block}
 @media (max-width:600px){.cap-grid{grid-template-columns:1fr}.cap-card{min-height:0}}
 
 /* photo band */
-.photo-band{position:relative;overflow:hidden;background:var(--white)}
-.photo-band .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
-.photo-band .wrap{position:relative}
-.photo-band .panel{background:var(--offwhite);max-width:560px;padding:clamp(28px,4vw,48px);display:grid;gap:18px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
-.photo-band .panel::before{content:"";display:block;width:40px;height:3px;background:var(--teal)}
+/* Built by Real People (Figma): full-bleed photo, ocean wash, teal corner, coral band, white card with 45-degree cut; navy CTA overlaps below */
+.rp{position:relative;overflow:hidden;padding-top:clamp(48px,7.06vw,113px);padding-bottom:calc(clamp(56px,6vw,96px) + var(--cut));background:var(--navy)}
+.rp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 35%}
+.rp::before{content:"";position:absolute;inset:0;background:linear-gradient(95.5deg,rgba(38,155,187,.45) 15.9%,rgba(38,155,187,0) 62.6%)}
+.rp-teal{position:absolute;left:0;top:0;width:33.125vw;aspect-ratio:1;background:var(--teal);opacity:.8;clip-path:polygon(0 0,100% 0,0 100%)}
+.rp-coral{position:absolute;left:0;right:0;top:19.14vw;bottom:0;background:var(--coral);opacity:.9;clip-path:polygon(97.15vw 0,112.13vw 0,-87.87vw 200vw,-102.85vw 200vw)}
+.rp .wrap{position:relative;z-index:1}
+.rp-card{background:var(--white);width:min(100%,clamp(420px,37.9vw,606px));padding:clamp(36px,4.1vw,66px) clamp(28px,3.5vw,56px) clamp(32px,2.9vw,46px) clamp(28px,3.9vw,62px);display:grid;gap:20px;clip-path:polygon(42px 0,100% 0,100% 100%,0 100%,0 42px)}
+.rp-card .h-l{color:var(--navy);max-width:13em}
+.rp-card .body-hw{color:var(--navy);margin:0}
+.rp-card .row{display:flex;flex-wrap:wrap;gap:16px 20px;margin-top:12px}
+@media (max-width:860px){
+  .rp{padding-top:62vw;padding-bottom:calc(32px + var(--cut))}
+  .rp-img{height:72vw;bottom:auto}
+  .rp::before{bottom:auto;height:72vw}
+  .rp-teal{width:40vw}
+  .rp-coral{top:30vw;bottom:auto;height:42vw}
+  .rp-card{width:100%;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+}
 
 /* CTA band */
 .cta .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:end}

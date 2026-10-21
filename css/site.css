@@ -35,9 +35,11 @@ img{max-width:100%;display:block}
 .navy{background:var(--navy);color:var(--on-navy)}
 .white{background:var(--white)}
 .grayb{background:var(--gray)}
-.eyebrow{font-size:var(--step--1);line-height:1.2;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--rule)}
-.eyebrow::before{content:"";width:12px;height:12px;flex:none;background:var(--teal);clip-path:polygon(0 100%,100% 0,100% 100%)}
-.navy .eyebrow{color:var(--on-navy-2);border-top-color:rgba(255,255,255,.2)}
+/* eyebrow: matches the How We Work label (Figma) - 45-degree ocean slash + bold uppercase label, optically centered */
+.eyebrow{display:flex;align-items:center;gap:clamp(10px,.8vw,13px);padding-top:.15em;font-size:clamp(.8125rem,.9vw,.9375rem);line-height:1;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy)}
+.eyebrow::before{content:"";flex:none;width:clamp(20px,1.6vw,26px);aspect-ratio:36/26;margin-top:-.15em;background:var(--ocean);clip-path:polygon(71.56% 0,0 100%,28.44% 100%,100% 0)}
+.navy .eyebrow{color:var(--white)}
+.navy .eyebrow::before{background:var(--teal)}
 .lede{font-size:var(--lead);line-height:1.55;color:var(--ink-2);max-width:56ch}
 .navy .lede,.navy p{color:var(--on-navy-2)}
 .prose{display:grid;gap:1em;max-width:62ch;color:var(--ink-2)}

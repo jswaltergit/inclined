@@ -101,11 +101,21 @@ img{max-width:100%;display:block}
 .logo img{width:100%;height:auto}
 .nav{display:flex;align-items:center;gap:4px}
 .nav a:not(.btn){font-weight:400;font-size:.875rem;text-decoration:none;padding:10px 14px;color:var(--navy);position:relative}
-.nav a:not(.btn):hover{color:var(--navy)}
+.nav a:not(.btn):hover{color:var(--ocean)}
+
 .nav a:not(.btn)[aria-current="page"]{color:var(--navy)}
 .nav a:not(.btn)[aria-current="page"]::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--teal)}
 .nav .btn{margin-left:20px;gap:12px;padding-left:14px;padding-right:13px;transition:min-height .3s ease,background-color .2s ease,color .2s ease}
 .site-head.is-scrolled .nav .btn{min-height:36px}
+/* desktop: links fill the bar height so the hover/current line sits on the bar's bottom edge like a tab */
+@media (min-width:901px){
+  .nav{align-self:stretch}
+  .nav a:not(.btn){display:flex;align-items:center;height:100%;padding:0 14px;transition:color .2s ease}
+  .nav a:not(.btn)::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--ocean);transform:scaleX(0);transform-origin:left center;transition:transform .25s ease}
+  .nav a:not(.btn):hover::after,.nav a:not(.btn):focus-visible::after{transform:scaleX(1)}
+  .nav a:not(.btn)[aria-current="page"]::after{left:14px;right:14px;bottom:-1px;height:3px;background:var(--teal);transform:scaleX(1)}
+  .nav a:not(.btn)[aria-current="page"]:hover::after{background:var(--ocean)}
+}
 .nav .btn[aria-current="page"]{--btn-bg:var(--navy);--btn-fg:var(--white);--btn-line:var(--navy)}
 .menu-btn{display:none;background:none;border:0;padding:10px;margin-right:-10px;cursor:pointer;color:var(--navy)}
 .menu-btn svg{width:26px;height:26px}

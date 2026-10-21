@@ -13,7 +13,7 @@ Static site for Inclined, built from the August 2026 website copy update and che
 - `images/`: logos, favicon and approved architecture photography
 
 ## Hosting
-Preview: https://inclined-website.netlify.app (deploys automatically from `main`)
+Preview: https://inclined-website.netlify.app (deployed from `main` via a Netlify build hook after each push)
 
 Hosted on Netlify, deployed automatically from the `main` branch root on every push. No build step. `_headers` sets browser caching for images, fonts, CSS and JS.
 

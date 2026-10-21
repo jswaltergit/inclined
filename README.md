@@ -13,7 +13,7 @@ Static site for Inclined, built from the August 2026 website copy update and che
 - `images/`: logos, favicon and approved architecture photography
 
 ## Hosting
-Served with GitHub Pages from the `main` branch root. No build step.
+Hosted on Netlify, deployed automatically from the `main` branch root on every push. No build step. `_headers` sets browser caching for images, fonts, CSS and JS.
 
 ## Open items before launch
 - Leadership names, titles and headshots

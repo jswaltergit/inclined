@@ -122,8 +122,9 @@ img{max-width:100%;display:block}
 .hero-band.b1{height:86%;background:var(--ocean);opacity:.88}
 .hero-band.b2{height:47%;background:var(--ice)}
 .hero-content{position:relative;z-index:3;width:100%;padding-block:clamp(80px,9vw,128px);color:var(--white)}
-/* hero copy anchors to the left, aligned just inside the logo, instead of the centered content column */
-.hero .hero-content{max-width:none;margin:0;padding-left:calc(max(clamp(16px,2.5vw,40px),env(safe-area-inset-left,0px)) - 12px + clamp(16px,4vw,72px))}
+.hero .hero-content{max-width:none;margin:0;
+  /* halfway between the centered content column and the logo-aligned edge */
+  padding-left:calc(max(0px,(100vw - 1264px) / 4) + (clamp(16px,2.5vw,40px) - 12px + clamp(16px,4vw,72px) + 20px + clamp(0px,4vw,64px)) / 2)}
 .hero-copy{display:grid;gap:22px;max-width:640px}
 .hero h1.tag{font-size:var(--step-5);line-height:.95;letter-spacing:-.025em;color:var(--white)}
 .hero h1.tag span{display:block}

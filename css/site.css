@@ -163,14 +163,15 @@ img{max-width:100%;display:block}
 /* home section 2 + How We Work (Figma "Homepage Section 2 + How We Work", 1600px frame; sizes scale with the viewport up to the frame's values) */
 .hardest{position:relative;overflow-x:clip;overflow-y:visible;background:var(--offwhite);padding-top:clamp(56px,5.5vw,88px);padding-bottom:clamp(64px,7.25vw,116px)}
 .hardest-mark{position:absolute;z-index:0;left:25%;top:clamp(0px,.6vw,10px);width:75%;height:auto;pointer-events:none}
-.hardest-grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(44px,8.6vw,138px)}
+.hardest-grid{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:clamp(32px,4.6vw,72px)}
 .hardest-title{grid-column:1 / span 10;max-width:12.3em;font-size:clamp(2.25rem,4.625vw,4.625rem);line-height:1.216;letter-spacing:-.01em;
   background:linear-gradient(141.52deg,var(--navy) 12.93%,var(--ocean) 66.08%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .hardest-title .line2{display:block}
 /* "Making Them Work." carries its own gradient and a 9px ice underline (9px at 74px type) */
 .hardest-title .hl{background:linear-gradient(153.55deg,var(--navy) -55%,var(--ocean) 12%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  text-decoration-line:underline;text-decoration-color:var(--ice);text-decoration-thickness:.122em;text-underline-offset:.2em;text-decoration-skip-ink:none}
-.hardest-body{grid-column:5 / span 8;max-width:29.6em;font-size:clamp(1.125rem,1.75vw,1.75rem);line-height:1.607;color:var(--navy)}
+  position:relative}
+.hardest-title .hl-u{background:linear-gradient(var(--ice),var(--ice)) no-repeat 0 var(--ul-y,94%) / 100% .122em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hardest-body{grid-column:5 / span 8;max-width:31em;font-size:clamp(1.0625rem,1.45vw,1.4375rem);line-height:1.6;color:var(--navy)}
 /* How We Work */
 .hw{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;margin-top:clamp(64px,12.4vw,198px)}
 .hw-rule{grid-column:1 / -1;border-top:.5px solid rgba(0,0,0,.55)}

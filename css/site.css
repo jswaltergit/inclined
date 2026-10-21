@@ -44,13 +44,15 @@ img{max-width:100%;display:block}
 .navy .lede,.navy p{color:var(--on-navy-2)}
 .prose{display:grid;gap:1em;max-width:62ch;color:var(--ink-2)}
 .h-xl{font-size:var(--step-4)}
-.h-l{font-size:var(--step-3)}
+.h-l{font-size:clamp(1.75rem,3vw,3rem);line-height:1.2}
 .h-m{font-size:var(--step-2)}
 .h-s{font-size:var(--step-1)}
-.stack{display:grid;gap:20px;align-content:start}
-.stack-sm{display:grid;gap:14px;align-content:start}
+.stack{--gap:20px;display:grid;gap:var(--gap);align-content:start}
+.stack-sm{--gap:14px;display:grid;gap:var(--gap);align-content:start}
+/* eyebrow-to-headline spacing matches How We Work */
+.stack>.eyebrow,.stack-sm>.eyebrow,.section-head>.eyebrow{margin-bottom:calc(clamp(20px,2.6vw,41px) - var(--gap))}
 .row{display:flex;flex-wrap:wrap;gap:12px}
-.section-head{display:grid;gap:14px}
+.section-head{--gap:14px;display:grid;gap:var(--gap)}
 .section-head .row{justify-content:space-between;align-items:end;gap:16px 24px}
 
 /* incline edges */

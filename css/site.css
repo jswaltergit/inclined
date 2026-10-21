@@ -111,9 +111,9 @@ img{max-width:100%;display:block}
 @media (min-width:901px){
   .nav{align-self:stretch}
   .nav a:not(.btn){display:flex;align-items:center;height:100%;padding:0 14px;transition:color .2s ease}
-  .nav a:not(.btn)::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--ocean);transform:scaleX(0);transform-origin:left center;transition:transform .25s ease}
+  .nav a:not(.btn)::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:5px;background:var(--ocean);transform:scaleX(0);transform-origin:left center;transition:transform .25s ease}
   .nav a:not(.btn):hover::after,.nav a:not(.btn):focus-visible::after{transform:scaleX(1)}
-  .nav a:not(.btn)[aria-current="page"]::after{left:14px;right:14px;bottom:-1px;height:3px;background:var(--teal);transform:scaleX(1)}
+  .nav a:not(.btn)[aria-current="page"]::after{left:14px;right:14px;bottom:-1px;height:5px;background:var(--teal);transform:scaleX(1)}
   .nav a:not(.btn)[aria-current="page"]:hover::after{background:var(--ocean)}
 }
 .nav .btn[aria-current="page"]{--btn-bg:var(--navy);--btn-fg:var(--white);--btn-line:var(--navy)}

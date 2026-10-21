@@ -138,8 +138,8 @@ img{max-width:100%;display:block}
 @media (max-width:1240px){.hero-frame::before{background:linear-gradient(90deg,rgba(12,48,118,.75) 0%,rgba(12,48,118,.5) 45%,rgba(12,48,118,0) 75%)}}
 @media (max-width:860px){.hero-frame::before{background:linear-gradient(180deg,rgba(12,48,118,.82) 0%,rgba(12,48,118,.7) 65%,rgba(12,48,118,.3) 100%)}}
 .hero-band{position:absolute;right:0;bottom:0;aspect-ratio:1/1;width:auto;z-index:2;clip-path:polygon(100% 0,100% 100%,0 100%)}
-.hero-band.b1{height:86%;background:var(--coral)}
-.hero-band.b2{height:47%;background:var(--ice)}
+.hero-band.b1{height:86%;background:var(--ocean);opacity:.88}
+.hero-band.b2{height:47%;background:var(--coral)}
 .hero-content{position:relative;z-index:3;width:100%;padding-block:clamp(80px,9vw,128px);color:var(--white)}
 .hero .hero-content{max-width:none;margin:0;
   /* halfway between the centered content column and the logo-aligned edge */

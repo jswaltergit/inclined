@@ -43,6 +43,7 @@ img{max-width:100%;display:block}
 .lede{font-size:var(--lead);line-height:1.55;color:var(--ink-2);max-width:56ch}
 .navy .lede,.navy p{color:var(--on-navy-2)}
 .prose{display:grid;gap:1em;max-width:62ch;color:var(--ink-2)}
+.body-hw{font-size:clamp(1rem,1.1vw,1.0625rem);line-height:1.7}
 .h-xl{font-size:var(--step-4)}
 .h-l{font-size:clamp(1.75rem,3vw,3rem);line-height:1.2}
 .h-m{font-size:var(--step-2)}

@@ -538,3 +538,14 @@ main{animation:fade .45s ease both}
 
 .lead-phil{padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(48px,6vw,96px))}
 @media (max-width:460px){.bio-card .bio-photo,.bio-card h3,.bio-card .role{display:none}.bio-card{padding:24px 64px 28px 24px}.bio-card p.bio-text{margin-top:0}.bio-close{top:12px;right:12px}}
+/* desktop: the page dims behind an open bio */
+.bio-scrim{position:fixed;inset:0;z-index:55;background:rgba(9,51,96,.6);opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out,ease),visibility 0s linear .5s;cursor:pointer}
+.bio-scrim.is-on{opacity:1;visibility:visible;transition:opacity .5s var(--ease-out,ease),visibility 0s}
+@media (min-width:861px){
+  .bio-modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:clamp(24px,5vw,64px);visibility:hidden}
+  .bio-modal.is-on{visibility:visible}
+  .bio-modal .bio-panel{width:min(980px,100%);grid-template-rows:1fr;margin:0;opacity:0;transform:translateY(16px) scale(.985);transition:opacity .45s var(--ease-out,ease),transform .6s var(--ease-expo,ease)}
+  .bio-modal .bio-panel.is-open{opacity:1;transform:none}
+  .bio-modal .bio-card{box-shadow:0 30px 80px -24px rgba(4,20,45,.6);grid-template-columns:minmax(0,260px) minmax(0,1fr)}
+}
+@media (max-width:860px){.bio-scrim{display:none}}

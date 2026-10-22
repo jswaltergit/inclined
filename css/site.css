@@ -592,7 +592,12 @@ main{animation:fade .45s ease both}
 .why-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start}
 .why-text{max-width:38em;font-size:clamp(1.0625rem,1.3vw,1.25rem);line-height:1.65;color:var(--ink-2)}
 .why .tenure{padding:22px 0 0;border-top:1px solid var(--navy)}
-.look-wrap{margin-top:clamp(24px,4vw,64px)}
-.look-label{font-size:clamp(.8125rem,.9vw,.9375rem);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);line-height:1;padding-top:.6em}
-.look-text{margin-top:16px;font-size:clamp(1.25rem,1rem + .8vw,1.625rem);line-height:1.45;color:var(--navy);max-width:40ch;letter-spacing:-.005em}
 @media (max-width:860px){.why-grid{grid-template-columns:1fr}}
+.tenure-wrap{margin:0;width:auto;align-items:center}
+.tenure-wrap .tenure{border-top:0;padding:0}
+.tenure-wrap .quote-slash{width:clamp(80px,7vw,120px)}
+.find{padding-bottom:calc(var(--sp-section) + 8px)}
+.principles.four-up{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1100px){.principles.four-up{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.principles.four-up{grid-template-columns:1fr}}
+.look-sec{padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(32px,4vw,64px))}

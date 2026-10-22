@@ -638,7 +638,7 @@ main{animation:fade .45s ease both}
 /* ---------- Contact page: all navy, large logomark behind the content ---------- */
 body.contact-page{background:var(--navy)}
 .contact-page main{position:relative;overflow:hidden;color:var(--on-navy)}
-.contact-mark{position:absolute;z-index:0;top:clamp(40px,6vw,120px);right:clamp(-260px,-12vw,-80px);width:min(1150px,78vw);aspect-ratio:973.55/960.92;background:url(../images/Footer-Logo-BG.svg) no-repeat center / contain;pointer-events:none}
+.contact-mark{position:absolute;z-index:0;top:0;right:clamp(-200px,-9vw,-60px);width:min(900px,62vw);aspect-ratio:973.55/960.92;background:url(../images/Footer-Logo-BG.svg) no-repeat center / contain;pointer-events:none}
 .contact-page main>section{position:relative;z-index:1;background:transparent}
 .contact-page .page-hero{clip-path:none}
 .contact-page .pull-up{margin-top:0;padding-top:clamp(8px,2vw,24px);padding-bottom:var(--sp-section)}

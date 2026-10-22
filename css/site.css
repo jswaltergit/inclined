@@ -102,11 +102,14 @@ img{max-width:100%;display:block}
 .textlink:hover{border-bottom-color:var(--navy)}
 
 /* header */
-.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,box-shadow .3s ease}
+.site-head{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,box-shadow .3s ease}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:clamp(72px,6.4vw,100px);transition:height .3s ease;max-width:none;padding-left:max(clamp(16px,2.5vw,40px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,2.5vw,40px),env(safe-area-inset-right,0px))}
 .logo{display:block;width:clamp(132px,12.5vw,184px);flex:none;transition:width .3s ease}
 /* once the page scrolls, the sticky bar tightens */
 .site-head.is-scrolled{border-bottom-color:var(--rule)}
+/* header is fixed so its shrink never shifts the page underneath */
+body{padding-top:calc(clamp(72px,6.4vw,100px) + env(safe-area-inset-top,0px))}
+html{scroll-padding-top:80px}
 .site-head.is-scrolled .wrap{height:clamp(56px,4.4vw,64px)}
 .site-head.is-scrolled .logo{width:clamp(112px,8.5vw,128px)}
 .logo img{width:100%;height:auto}
@@ -457,9 +460,10 @@ main{animation:fade .45s ease both}
 
 /* hero: framed at rest, grows to full bleed with a slow photo zoom as you scroll (JS sets --hp 1..0 and --hs) */
 .motion .hero{padding:0}
-.motion .hero-frame{transform-origin:50% 0;scale:var(--hs,1);border-radius:0 calc(8px * var(--hp,1)) calc(8px * var(--hp,1)) calc(8px * var(--hp,1));
-  clip-path:polygon(calc(var(--cut) * var(--hp,1)) 0,100% 0,100% 100%,0 100%,0 calc(var(--cut) * var(--hp,1)));will-change:scale}
-.motion .hero-img{scale:calc(1 + (1 - var(--hp,1)) * .1);will-change:scale}
+.motion .hero-frame{border-radius:0;
+  clip-path:inset(0 calc(12px * var(--hp,1)) calc(12px * var(--hp,1)) calc(12px * var(--hp,1)) round 0 calc(8px * var(--hp,1)) calc(8px * var(--hp,1)) calc(8px * var(--hp,1)))}
+.motion .hero-frame::after{content:"";position:absolute;z-index:4;top:0;left:calc(12px * var(--hp,1) - 1px);width:calc(var(--cut) * var(--hp,1) + 1px);aspect-ratio:1;background:var(--white);clip-path:polygon(0 0,100% 0,0 100%);pointer-events:none}
+.motion .hero-img{scale:calc(1 + (1 - var(--hp,1)) * .1);will-change:transform,scale;backface-visibility:hidden}
 /* Section 2 headline lands in two beats: the setup first, then "Making Them Work." with its underline drawing in */
-.motion .hardest-title .hl-u{opacity:0;filter:blur(8px);background-size:0% .122em;transition:opacity 1s var(--ease-out),filter 1.2s var(--ease-out),background-size 1.1s var(--ease-expo)}
-.motion .hardest-title.is-in .hl-u{opacity:1;filter:none;background-size:100% .122em;transition-delay:.45s,.45s,1.1s}
+.motion .hardest-title .hl-u{opacity:0;background-size:0% .122em;transition:opacity .9s var(--ease-out),background-size .9s var(--ease-out)}
+.motion .hardest-title.is-in .hl-u{opacity:1;background-size:100% .122em;transition-delay:.45s,.45s}

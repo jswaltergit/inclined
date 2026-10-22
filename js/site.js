@@ -41,13 +41,12 @@
   // Hero: starts framed, then eases out to full bleed (and the photo zooms in) as you scroll
   (function(){
     var hero=document.querySelector('.hero');if(!hero||!document.documentElement.classList.contains('motion'))return;
-    var ticking=false;
+    var ticking=false,last=-1;
     function upd(){ticking=false;
       var w=hero.clientWidth||innerWidth,dist=Math.max(280,innerHeight*.6);
       var t=Math.min(1,Math.max(0,scrollY/dist));t=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
       var p=1-t; /* 1 = framed (at rest), 0 = full bleed (scrolled) */
-      hero.style.setProperty('--hp',p.toFixed(4));
-      hero.style.setProperty('--hs',(1-(24/w)*p).toFixed(5));}
+      if(p===last)return;last=p;hero.style.setProperty('--hp',p.toFixed(3));}
     window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
     window.addEventListener('resize',upd);upd();
   })();

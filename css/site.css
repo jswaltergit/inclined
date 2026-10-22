@@ -505,9 +505,9 @@ main{animation:fade .45s ease both}
 .cta,.site-foot{background-image:url(../images/Footer-Logo-BG.svg);background-repeat:no-repeat;background-size:auto calc(var(--end-h) * 1.05)}
 .cta{background-position:right clamp(-140px,-5vw,-40px) top calc(var(--end-h) * -.025)}
 .site-foot{background-position:right clamp(-140px,-5vw,-40px) top calc(var(--end-h) * -.025 - var(--cta-h))}
-@media (max-width:720px){.cta,.site-foot{background-size:auto calc(var(--end-h) * .6)}
-  .cta{background-position:right -70px top calc(var(--end-h) * .3)}
-  .site-foot{background-position:right -70px top calc(var(--end-h) * .3 - var(--cta-h))}}
+@media (max-width:720px){.cta,.site-foot{background-size:auto calc(var(--end-h) * .42)}
+  .cta{background-position:right -50px top 0}
+  .site-foot{background-position:right -50px top calc(-1 * var(--cta-h))}}
 
 /* ---------- Capabilities page ---------- */
 :root{--head-s:calc(clamp(56px,4.4vw,64px) + 1px);--capbar-h:64px}
@@ -651,3 +651,43 @@ body.contact-page{background:var(--navy)}
 .contact-page .pending{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.35)}
 .contact-page .site-foot{background-image:none;border-top:1px solid rgba(255,255,255,.12)}
 .contact-page form{color:var(--navy)}
+
+/* ================= Mobile-only refinements (desktop unchanged) ================= */
+.cap-more{display:none}
+@media (max-width:900px){
+  /* full-screen translucent navy menu */
+  body.menu-open{overflow:hidden}
+  .menu-open .site-head{background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .site-head .logo,.menu-btn{position:relative;z-index:2}
+  .menu-open .menu-btn{color:var(--white)}
+  .menu-open .logo-svg path[fill="#093360"]{fill:var(--white)}
+  .nav{position:fixed;inset:0;z-index:1;display:none;flex-direction:column;justify-content:flex-start;background:rgba(9,51,96,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:0;
+    padding:calc(env(safe-area-inset-top,0px) + 104px) max(24px,env(safe-area-inset-right,0px)) 32px max(24px,env(safe-area-inset-left,0px))}
+  .nav.open{display:flex;animation:rv-fade .3s ease both}
+  .nav a:not(.btn){color:var(--white);font-size:1.5rem;font-weight:700;padding:18px 4px;border-bottom:1px solid rgba(255,255,255,.16)}
+  .nav a:not(.btn):hover{color:var(--ice)}
+  .nav a:not(.btn)[aria-current="page"]{color:var(--white)}
+  .nav a:not(.btn)[aria-current="page"]::after{background:var(--teal);bottom:10px;width:28px;height:3px}
+  .nav .btn{margin-top:28px;align-self:flex-start;--btn-bg:var(--white);--btn-fg:var(--navy);--btn-line:var(--white);--btn-arrow:var(--ocean)}
+  .nav .btn[aria-current="page"]{--btn-bg:var(--ocean);--btn-fg:var(--white);--btn-line:var(--ocean);--btn-arrow:var(--white)}
+}
+@media (max-width:860px){
+  /* homepage hero copy: a touch further in and down, with more breathing room */
+  .hero .hero-content{padding:112px 32px 156px 40px}
+  /* capabilities bar: fade + arrow show there is more to swipe */
+  .cap-index-bar{overflow:hidden}
+  .cap-index-bar::before,.cap-index-bar::after{content:"";position:absolute;top:0;bottom:0;width:56px;pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:1}
+  .cap-index-bar::before{left:0;background:linear-gradient(90deg,var(--navy),rgba(9,51,96,0))}
+  .cap-index-bar::after{right:0;width:84px;background:linear-gradient(270deg,var(--navy) 40%,rgba(9,51,96,0))}
+  .cap-index-bar.more-left::before,.cap-index-bar.more-right::after{opacity:1}
+  .cap-more{display:grid;place-items:center;position:absolute;right:8px;top:50%;width:32px;height:32px;margin-top:-16px;z-index:2;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(9,51,96,.6);color:var(--white);padding:0;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s ease}
+  .cap-more svg{width:14px;height:14px}
+  .cap-index-bar.more-right .cap-more{opacity:1;pointer-events:auto;animation:cap-nudge 2.4s ease-in-out 1s 2}
+  @keyframes cap-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+  .cap-index{padding-right:64px}
+  /* About: More Than Technology photo above its text; smaller Our Story quote, nudged left */
+  .about-split .media-right .eitl-media{order:-1}
+  .story .quote{font-size:clamp(1.25rem,5.4vw,1.5rem)}
+  .story .quote-wrap{gap:14px;margin-left:-6px}
+  .story .quote-slash{width:56px}
+}

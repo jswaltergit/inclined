@@ -6,7 +6,12 @@
   function onScroll(){head.classList.toggle('is-scrolled',window.scrollY>24);}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   var nav=document.getElementById('nav'),menuBtn=document.getElementById('menuBtn');
-  menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
+  var menuPath=menuBtn.querySelector('path');
+  function setMenu(o){nav.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);menuBtn.setAttribute('aria-expanded',o?'true':'false');
+    menuBtn.setAttribute('aria-label',o?'Close menu':'Menu');if(menuPath)menuPath.setAttribute('d',o?'M5 5l14 14M19 5L5 19':'M3 7h18M3 12h18M3 17h18');}
+  menuBtn.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);menuBtn.focus();}});
+  window.addEventListener('resize',function(){if(innerWidth>900&&nav.classList.contains('open'))setMenu(false);});
 
   document.querySelectorAll('[data-copy]').forEach(function(b){
     b.addEventListener('click',function(){
@@ -129,6 +134,12 @@
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur)dismiss();});
     window.addEventListener('resize',function(){if(cur)place(cur);if(!desk.matches){scrim.classList.remove('is-on');modal.classList.remove('is-on');}else if(cur){scrim.classList.add('is-on');modal.classList.add('is-on');}});
   })();
+
+  // Capabilities bar on small screens: show fades/arrow while more chips are off-screen
+  (function(){var bar=document.querySelector('.cap-index');if(!bar)return;var wrap=bar.closest('.cap-index-bar');
+    function upd(){var max=bar.scrollWidth-bar.clientWidth;wrap.classList.toggle('more-right',bar.scrollLeft<max-4);wrap.classList.toggle('more-left',bar.scrollLeft>4);}
+    bar.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+    var hint=wrap.querySelector('.cap-more');if(hint)hint.addEventListener('click',function(){bar.scrollBy({left:bar.clientWidth*.7,behavior:'smooth'});});})();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

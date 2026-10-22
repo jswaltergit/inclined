@@ -566,15 +566,15 @@ main{animation:fade .45s ease both}
 @media (max-width:860px){.quote-wrap{margin-left:0;width:100%}}
 /* Driven by Purpose: ocean field; statement left, supporting copy staggered right over a navy photo trapped in a 45-degree band that bleeds off the right */
 .purpose-band{position:relative;overflow:hidden;background:var(--ocean);color:var(--white);padding-top:calc(var(--sp-section) + 16px);padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(56px,7vw,112px))}
-.purpose-photo{position:absolute;top:0;bottom:0;left:24%;right:-70%;transform:skewX(-45deg);transform-origin:0 100%;overflow:hidden;pointer-events:none}
-.purpose-photo .pp-in{position:absolute;top:0;bottom:0;left:-40%;right:-40%;transform:skewX(45deg);transform-origin:0 100%;opacity:.55}
-.purpose-photo img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.purpose-photo{position:absolute;top:0;bottom:0;left:6%;right:-70%;transform:skewX(-45deg);transform-origin:0 100%;overflow:hidden;pointer-events:none}
+.purpose-photo .pp-in{position:absolute;top:0;bottom:0;left:-40%;right:-40%;transform:skewX(45deg);transform-origin:0 100%}
+.purpose-photo img{width:100%;height:100%;object-fit:cover;object-position:35% 50%}
 .purpose-shape{position:absolute;top:0;bottom:0;pointer-events:none;transform:skewX(-45deg);transform-origin:0 100%}
 .purpose-shape.s2{left:33%;width:7%;background:rgba(9,51,96,.28)}
 .purpose-band .wrap{position:relative;z-index:1}
-.purpose-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px) clamp(28px,5vw,80px);align-items:start}
+.purpose-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,4vw,56px) clamp(28px,5vw,80px);align-items:start}
 .purpose-grid>.purpose-copy{grid-column:1 / -1}
-.purpose-grid>.lede{grid-column:2;max-width:40ch}
+.purpose-grid>.lede{grid-column:2;max-width:46ch}
 .purpose-copy{max-width:none}
 .purpose-band .purpose{max-width:40ch}
 .purpose-band .eyebrow{color:var(--white)}

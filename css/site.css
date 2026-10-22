@@ -334,13 +334,36 @@ html{scroll-padding-top:80px}
 
 /* leadership */
 .people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(28px,3vw,44px) clamp(20px,2.4vw,36px)}
-.person{display:grid;gap:6px;align-content:start}
-.person .ph{aspect-ratio:1;background:var(--gray);overflow:hidden;margin-bottom:12px;border-radius:0 6px 6px 6px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+.person{display:grid;align-content:start;min-width:0}
+.person-btn{all:unset;box-sizing:border-box;display:grid;gap:6px;align-content:start;cursor:pointer;width:100%}
+.person-btn:focus-visible{outline:2px solid var(--ocean);outline-offset:6px}
+.person .ph{display:block;aspect-ratio:1;background:var(--gray);overflow:hidden;margin-bottom:12px;border-radius:0 6px 6px 6px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
 .person .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-expo,ease)}
-.person:hover .ph img{transform:scale(1.04)}
-.person h3{font-size:var(--step-1);color:var(--navy)}
+.person-btn:hover .ph img,.person-btn[aria-expanded="true"] .ph img{transform:scale(1.04)}
+.person-name{font-size:var(--step-1);font-weight:700;line-height:1.25;color:var(--navy)}
 .person .role{color:var(--navy);font-size:.9375rem;font-weight:400;line-height:1.35}
+.person-more{display:inline-flex;align-items:center;gap:10px;margin-top:8px;font-size:.8125rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ocean)}
+.person-more::after{content:"";width:12px;height:12px;background:linear-gradient(currentColor,currentColor) center/100% 2px no-repeat,linear-gradient(currentColor,currentColor) center/2px 100% no-repeat;transition:transform .45s var(--ease-expo,ease)}
+.person-btn[aria-expanded="true"] .person-more::after{transform:rotate(45deg)}
+.person-btn[aria-expanded="true"] .person-name{color:var(--ocean)}
 .person .bio{color:var(--ink-2);font-size:.9375rem;line-height:1.6;margin-top:4px}
+.people.js-bios .person .bio{display:none}
+/* bio drawer: opens full width under the row of the selected person */
+.bio-panel{grid-column:1 / -1;display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease-expo,ease),margin .6s var(--ease-expo,ease);margin-block:-8px}
+.bio-panel.is-open{grid-template-rows:1fr;margin-block:0}
+.bio-panel>.bio-inner{overflow:hidden;min-height:0}
+.bio-card{position:relative;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;background:var(--white);border-top:3px solid var(--ocean);padding:clamp(24px,3.4vw,48px) clamp(24px,4vw,64px) clamp(24px,3.4vw,48px) clamp(24px,3.4vw,48px);clip-path:polygon(0 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%);opacity:0;transform:translateY(-10px);transition:opacity .45s var(--ease-out,ease) .1s,transform .6s var(--ease-expo,ease) .1s}
+.bio-panel.is-open .bio-card{opacity:1;transform:none}
+.bio-card .bio-photo{aspect-ratio:1;overflow:hidden;border-radius:0 6px 6px 6px;clip-path:polygon(22px 0,100% 0,100% 100%,0 100%,0 22px)}
+.bio-card .bio-photo img{width:100%;height:100%;object-fit:cover}
+.bio-card h3{font-size:clamp(1.5rem,1.2rem + 1vw,2rem);color:var(--navy)}
+.bio-card .role{display:block;margin-top:6px;color:var(--navy);font-size:1rem}
+.bio-card p.bio-text{margin-top:18px;max-width:58ch;font-size:clamp(1rem,1.1vw,1.0625rem);line-height:1.7;color:var(--ink-2)}
+.bio-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border:1px solid var(--rule);background:var(--white);cursor:pointer;border-radius:2px;color:var(--navy)}
+.bio-close::before,.bio-close::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:currentColor;transform:translate(-50%,-50%) rotate(45deg)}
+.bio-close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.bio-close:hover{border-color:var(--ocean);color:var(--ocean)}
+@media (max-width:640px){.bio-card{grid-template-columns:1fr;padding-top:56px}.bio-card .bio-photo{width:120px}}
 @media (max-width:1100px){.people{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:460px){.people{grid-template-columns:1fr}}
@@ -514,3 +537,4 @@ main{animation:fade .45s ease both}
 .page-hero.rise-bottom{clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
 
 .lead-phil{padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(48px,6vw,96px))}
+@media (max-width:460px){.bio-card .bio-photo,.bio-card h3,.bio-card .role{display:none}.bio-card{padding:24px 64px 28px 24px}.bio-card p.bio-text{margin-top:0}.bio-close{top:12px;right:12px}}

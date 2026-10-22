@@ -88,6 +88,35 @@
     window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
     window.addEventListener('resize',upd);upd();
   })();
+
+  // Leadership: click a person to open their bio in a drawer under their row
+  (function(){
+    var grid=document.getElementById('people');if(!grid)return;
+    var btns=[].slice.call(grid.querySelectorAll('.person-btn'));if(!btns.length)return;
+    grid.classList.add('js-bios');
+    var panel=document.createElement('div');panel.className='bio-panel is-in';panel.id='bio-panel';panel.setAttribute('role','region');panel.setAttribute('aria-live','polite');
+    panel.innerHTML='<div class="bio-inner"><div class="bio-card"><button class="bio-close" type="button" aria-label="Close bio"></button><div class="bio-photo"><img alt=""></div><div><h3 id="bio-name"></h3><span class="role"></span><p class="bio-text"></p></div></div></div>';
+    panel.setAttribute('aria-labelledby','bio-name');
+    var cur=null,busy=false;
+    function rowEnd(btn){var card=btn.closest('.person'),top=card.offsetTop,last=card,cards=[].slice.call(grid.querySelectorAll('.person'));
+      cards.forEach(function(c){if(Math.abs(c.offsetTop-top)<4)last=c;});return last;}
+    function fill(btn){var card=btn.closest('.person');panel.querySelector('img').src=card.querySelector('.ph img').src;
+      panel.querySelector('h3').textContent=card.querySelector('.person-name').textContent;
+      panel.querySelector('.role').textContent=card.querySelector('.role').textContent;
+      panel.querySelector('.bio-text').textContent=card.querySelector('.bio').textContent;}
+    function mark(btn){btns.forEach(function(b){b.setAttribute('aria-expanded',b===btn?'true':'false');});}
+    function reveal(){var r=panel.getBoundingClientRect();if(r.bottom>innerHeight-24){scrollBy({top:Math.min(r.bottom-innerHeight+48,r.top-120),behavior:'smooth'});}}
+    function open(btn){fill(btn);var end=rowEnd(btn);if(panel.previousElementSibling!==end||!panel.parentNode)end.after(panel);
+      mark(btn);cur=btn;requestAnimationFrame(function(){requestAnimationFrame(function(){panel.classList.add('is-open');});});setTimeout(reveal,450);}
+    function close(cb){panel.classList.remove('is-open');mark(null);var c=cur;cur=null;setTimeout(function(){if(cb)cb();},cb?420:0);return c;}
+    btns.forEach(function(btn){btn.addEventListener('click',function(){if(busy)return;
+      if(cur===btn){close();return;}
+      if(cur&&rowEnd(cur)===rowEnd(btn)){mark(btn);cur=btn;var card=panel.querySelector('.bio-card');card.style.opacity='0';setTimeout(function(){fill(btn);card.style.opacity='';},260);return;}
+      if(cur){busy=true;close(function(){busy=false;open(btn);});}else open(btn);});});
+    panel.querySelector('.bio-close').addEventListener('click',function(){var c=close();if(c)c.focus();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&cur){var c=close();if(c)c.focus();}});
+    window.addEventListener('resize',function(){if(cur){var end=rowEnd(cur);if(panel.previousElementSibling!==end)end.after(panel);}});
+  })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

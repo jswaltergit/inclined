@@ -37,6 +37,19 @@
     },{rootMargin:'0px 0px -8% 0px',threshold:0.12});
     els.forEach(function(el){io.observe(el);});
   })();
+
+  // Hero: starts full-bleed, then eases into its framed state over the first part of the scroll
+  (function(){
+    var hero=document.querySelector('.hero');if(!hero||!document.documentElement.classList.contains('motion'))return;
+    var ticking=false;
+    function upd(){ticking=false;
+      var w=hero.clientWidth||innerWidth,dist=Math.max(240,innerHeight*.45);
+      var p=Math.min(1,Math.max(0,scrollY/dist));p=1-Math.pow(1-p,3);
+      hero.style.setProperty('--hp',p.toFixed(4));
+      hero.style.setProperty('--hs',(1-(24/w)*p).toFixed(5));}
+    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
+    window.addEventListener('resize',upd);upd();
+  })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

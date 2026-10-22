@@ -566,22 +566,23 @@ main{animation:fade .45s ease both}
 @media (max-width:860px){.quote-wrap{margin-left:0;width:100%}}
 /* Driven by Purpose: ocean field; statement left, supporting copy staggered right over a navy photo trapped in a 45-degree band that bleeds off the right */
 .purpose-band{position:relative;overflow:hidden;background:var(--ocean);color:var(--white);padding-top:calc(var(--sp-section) + 16px);padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(56px,7vw,112px))}
-.purpose-photo{position:absolute;top:0;bottom:0;left:46%;right:-70%;transform:skewX(-45deg);transform-origin:0 100%;overflow:hidden;background:var(--navy);pointer-events:none}
-.purpose-photo .pp-in{position:absolute;top:0;bottom:0;left:-40%;right:-40%;transform:skewX(45deg);transform-origin:0 100%;background:var(--white);opacity:.26}
-.purpose-photo img{width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:grayscale(1) contrast(1.2)}
+.purpose-photo{position:absolute;top:0;bottom:0;left:24%;right:-70%;transform:skewX(-45deg);transform-origin:0 100%;overflow:hidden;pointer-events:none}
+.purpose-photo .pp-in{position:absolute;top:0;bottom:0;left:-40%;right:-40%;transform:skewX(45deg);transform-origin:0 100%;opacity:.55}
+.purpose-photo img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
 .purpose-shape{position:absolute;top:0;bottom:0;pointer-events:none;transform:skewX(-45deg);transform-origin:0 100%}
 .purpose-shape.s2{left:33%;width:7%;background:rgba(9,51,96,.28)}
 .purpose-band .wrap{position:relative;z-index:1}
-.purpose-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start}
-.purpose-grid>.lede{margin-top:clamp(120px,14vw,220px);max-width:40ch}
+.purpose-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px) clamp(28px,5vw,80px);align-items:start}
+.purpose-grid>.purpose-copy{grid-column:1 / -1}
+.purpose-grid>.lede{grid-column:2;max-width:40ch}
 .purpose-copy{max-width:none}
-.purpose-band .purpose{max-width:24ch}
+.purpose-band .purpose{max-width:40ch}
 .purpose-band .eyebrow{color:var(--white)}
 .purpose-band .eyebrow::before{background:var(--navy)}
 .purpose-band .purpose{color:var(--white)}
 .purpose-band .purpose em{color:var(--white);box-shadow:inset 0 -.18em 0 rgba(9,51,96,.55)}
 .purpose-band .lede{color:var(--white)}
-@media (max-width:860px){.purpose-grid{grid-template-columns:1fr}.purpose-grid>.lede{margin-top:8px}.purpose-photo{left:55%}.purpose-shape.s2{left:40%}}
+@media (max-width:860px){.purpose-grid{grid-template-columns:1fr}.purpose-grid>.lede{grid-column:1}.purpose-photo{left:30%}}
 
 .eitl-media.swap .eitl-ice{background:var(--coral)}
 .eitl-media.swap .eitl-coral{background:var(--teal)}

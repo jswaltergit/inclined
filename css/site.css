@@ -112,7 +112,7 @@ body{padding-top:calc(clamp(72px,6.4vw,100px) + env(safe-area-inset-top,0px))}
 html{scroll-padding-top:80px}
 .site-head.is-scrolled .wrap{height:clamp(56px,4.4vw,64px)}
 .site-head.is-scrolled .logo{width:clamp(112px,8.5vw,128px)}
-.logo img{width:100%;height:auto}
+.logo img,.logo .logo-svg{display:block;width:100%;height:auto}
 .nav{display:flex;align-items:center;gap:4px}
 .nav a:not(.btn){font-weight:400;font-size:.875rem;text-decoration:none;padding:10px 14px;color:var(--navy);position:relative}
 .nav a:not(.btn):hover{color:var(--ocean)}

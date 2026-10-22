@@ -52,6 +52,19 @@
     window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd);}},{passive:true});
     window.addEventListener('resize',upd);upd();
   })();
+
+  // Logo: on hover the gradients in the symbol drift and flow; a cycle always finishes before it stops
+  (function(){
+    var link=document.querySelector('.site-head .logo');if(!link||!link.querySelector('animateTransform'))return;
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var anims=[].slice.call(link.querySelectorAll('animateTransform.logo-flow')),hovering=false,timers=[];
+    anims.forEach(function(a){a._on=false;a.addEventListener('endEvent',function(){if(hovering){try{a.beginElement();}catch(e){}}else a._on=false;});});
+    function start(){hovering=true;anims.forEach(function(a){if(a._on)return;var d=+a.getAttribute('data-delay')||0;
+      timers.push(setTimeout(function(){if(!hovering||a._on)return;a._on=true;try{a.beginElement();}catch(e){}},d));});}
+    function stop(){hovering=false;timers.forEach(clearTimeout);timers=[];}
+    link.addEventListener('mouseenter',start);link.addEventListener('mouseleave',stop);
+    link.addEventListener('focus',start);link.addEventListener('blur',stop);
+  })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

@@ -333,16 +333,17 @@ html{scroll-padding-top:80px}
 .purpose em{font-style:normal;font-weight:700;color:var(--navy);box-shadow:inset 0 -.18em 0 rgba(52,193,187,.45)}
 
 /* leadership */
-.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
-.person{display:grid;gap:12px;align-content:start}
-.person .ph{aspect-ratio:4/5;background:var(--gray);position:relative;display:grid;place-items:center;clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),calc(100% - 44px) 100%,0 100%)}
-.person .ph svg{width:38%;height:auto;color:rgba(9,51,96,.22)}
-.person .ph::after{content:"Headshot";position:absolute;left:16px;top:14px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-3)}
-.person h3{font-size:var(--step-1)}
-.person{gap:8px}
-.person p{color:var(--ink-3);font-size:.9375rem}
-.person.tbd h3{color:var(--ink-3)}
-@media (max-width:860px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(28px,3vw,44px) clamp(20px,2.4vw,36px)}
+.person{display:grid;gap:6px;align-content:start}
+.person .ph{aspect-ratio:1;background:var(--gray);overflow:hidden;margin-bottom:12px;border-radius:0 6px 6px 6px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%,0 28px)}
+.person .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-expo,ease)}
+.person:hover .ph img{transform:scale(1.04)}
+.person h3{font-size:var(--step-1);color:var(--navy)}
+.person .role{color:var(--ocean);font-size:.9375rem;font-weight:700;line-height:1.35}
+.person .bio{color:var(--ink-2);font-size:.9375rem;line-height:1.6;margin-top:4px}
+@media (max-width:1100px){.people{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.people{grid-template-columns:1fr}}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px)}
 .three .item{display:grid;gap:14px;align-content:start}
 .three .item h3{font-size:1.25rem}

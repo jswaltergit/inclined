@@ -600,4 +600,11 @@ main{animation:fade .45s ease both}
 .principles.four-up{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:1100px){.principles.four-up{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.principles.four-up{grid-template-columns:1fr}}
-.look-sec{padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(32px,4vw,64px))}
+.look-sec{padding-bottom:clamp(24px,3vw,48px)}
+/* light version of the tiles */
+.find-light{background:var(--white)}
+.find-light .h-l{color:var(--navy)}
+.find-light .principles .p{border-top-color:var(--rule)}
+.find-light .principles h3{color:var(--navy)}
+.find-light .principles p{color:var(--ink-2)}
+.rp-end{padding-bottom:clamp(64px,8vw,128px)}

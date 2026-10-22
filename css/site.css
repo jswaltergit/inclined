@@ -618,3 +618,14 @@ main{animation:fade .45s ease both}
 .tenure-wrap .tenure{display:flex;align-items:flex-start;gap:clamp(14px,1.6vw,24px)}
 .tenure-wrap .tenure b{color:var(--ocean)}
 .tenure-wrap .tenure span{font-size:clamp(1.25rem,1rem + .9vw,1.75rem);line-height:1.15;font-weight:700;color:var(--navy);padding-top:.32em}
+
+/* 15+ on a teal 45-degree band that fades out to the right */
+.why{overflow-x:clip}
+.tenure-cell{position:relative;padding-block:clamp(36px,4.6vw,72px)}
+.tenure-bg{position:absolute;top:0;bottom:0;left:clamp(-40px,-2.4vw,-20px);width:calc(100vw + 20%);transform:skewX(-45deg);transform-origin:0 0;
+  background:linear-gradient(90deg,var(--teal) 0%,var(--teal) 14%,rgba(52,193,187,.6) 42%,rgba(52,193,187,.12) 62%,rgba(52,193,187,0) 70%);pointer-events:none}
+.tenure-big{position:relative;--n:clamp(5rem,2.6rem + 6.4vw,9.5rem);display:block}
+.tenure-big b{display:block;font-size:var(--n);line-height:.86;color:var(--white);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.tenure-big span{display:block;margin:clamp(14px,1.4vw,22px) 0 0 calc(var(--n) * 1.08);font-size:clamp(1.25rem,.95rem + 1.1vw,2rem);line-height:1.12;font-weight:700;color:var(--navy)}
+@media (max-width:860px){.tenure-bg{left:-16px}.tenure-big span{margin-left:calc(var(--n) * .9)}}
+.tenure.tenure-big{border-top:0;padding:0}

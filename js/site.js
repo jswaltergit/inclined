@@ -53,17 +53,15 @@
     window.addEventListener('resize',upd);upd();
   })();
 
-  // Logo: on hover the gradients in the symbol drift and flow; a cycle always finishes before it stops
+  // Logo: on hover the gradients in the symbol flow through once and settle back
   (function(){
     var link=document.querySelector('.site-head .logo');if(!link||!link.querySelector('animateTransform'))return;
     if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-    var anims=[].slice.call(link.querySelectorAll('animateTransform.logo-flow')),hovering=false,timers=[];
-    anims.forEach(function(a){a._on=false;a.addEventListener('endEvent',function(){if(hovering){try{a.beginElement();}catch(e){}}else a._on=false;});});
-    function start(){hovering=true;anims.forEach(function(a){if(a._on)return;var d=+a.getAttribute('data-delay')||0;
-      timers.push(setTimeout(function(){if(!hovering||a._on)return;a._on=true;try{a.beginElement();}catch(e){}},d));});}
-    function stop(){hovering=false;timers.forEach(clearTimeout);timers=[];}
-    link.addEventListener('mouseenter',start);link.addEventListener('mouseleave',stop);
-    link.addEventListener('focus',start);link.addEventListener('blur',stop);
+    var anims=[].slice.call(link.querySelectorAll('animateTransform.logo-flow'));
+    anims.forEach(function(a){a._on=false;a.addEventListener('endEvent',function(){a._on=false;});});
+    function play(){if(anims.some(function(a){return a._on;}))return;
+      anims.forEach(function(a){a._on=true;setTimeout(function(){try{a.beginElement();}catch(e){a._on=false;}},+a.getAttribute('data-delay')||0);});}
+    link.addEventListener('mouseenter',play);link.addEventListener('focus',play);
   })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){

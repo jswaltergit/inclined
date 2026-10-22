@@ -460,10 +460,21 @@ main{animation:fade .45s ease both}
 
 /* hero: framed at rest, grows to full bleed with a slow photo zoom as you scroll (JS sets --hp 1..0 and --hs) */
 .motion .hero{padding:0}
-.motion .hero-frame{border-radius:0;
-  clip-path:inset(0 calc(12px * var(--hp,1)) calc(12px * var(--hp,1)) calc(12px * var(--hp,1)) round 0 calc(8px * var(--hp,1)) calc(8px * var(--hp,1)) calc(8px * var(--hp,1)))}
-.motion .hero-frame::after{content:"";position:absolute;z-index:4;top:0;left:calc(12px * var(--hp,1) - 1px);width:calc(var(--cut) * var(--hp,1) + 1px);aspect-ratio:1;background:var(--white);clip-path:polygon(0 0,100% 0,0 100%);pointer-events:none}
-.motion .hero-img{scale:calc(1 + (1 - var(--hp,1)) * .1);will-change:transform,scale;backface-visibility:hidden}
+.motion .hero{position:relative}
+.motion .hero-frame{border-radius:0;clip-path:none}
+/* the frame never changes; these edge masks shrink away (transform only, so it stays smooth) */
+.hero-mask{display:none}
+.motion .hero-mask{display:block;position:absolute;z-index:5;pointer-events:none;will-change:transform}
+.motion .hm-l,.motion .hm-r{top:0;bottom:0;width:12px;background:linear-gradient(180deg,var(--white) 30%,var(--offwhite) 100%)}
+.motion .hm-l{left:0;transform-origin:0 50%;transform:scaleX(var(--hp,1))}
+.motion .hm-r{right:0;transform-origin:100% 50%;transform:scaleX(var(--hp,1))}
+.motion .hm-b{left:0;right:0;bottom:0;height:12px;background:var(--offwhite);transform-origin:50% 100%;transform:scaleY(var(--hp,1))}
+.motion .hm-c{top:0;left:0;width:calc(var(--cut) + 12px);aspect-ratio:1;background:var(--white);clip-path:polygon(0 0,100% 0,0 100%);transform-origin:0 0;transform:scale(var(--hp,1))}
+.motion .hm-tr,.motion .hm-br,.motion .hm-bl{width:8px;height:8px}
+.motion .hm-tr{top:0;right:0;transform-origin:100% 0;transform:translateX(calc(-12px * var(--hp,1))) scale(var(--hp,1));background:radial-gradient(circle at 0 100%,transparent 7.5px,var(--white) 8px)}
+.motion .hm-br{bottom:0;right:0;transform-origin:100% 100%;transform:translate(calc(-12px * var(--hp,1)),calc(-12px * var(--hp,1))) scale(var(--hp,1));background:radial-gradient(circle at 0 0,transparent 7.5px,var(--offwhite) 8px)}
+.motion .hm-bl{bottom:0;left:0;transform-origin:0 100%;transform:translate(calc(12px * var(--hp,1)),calc(-12px * var(--hp,1))) scale(var(--hp,1));background:radial-gradient(circle at 100% 0,transparent 7.5px,var(--offwhite) 8px)}
+.motion .hero-img{scale:calc(1 + (1 - var(--hp,1)) * .1);will-change:transform}
 /* Section 2 headline lands in two beats: the setup first, then "Making Them Work." with its underline drawing in */
 .motion .hardest-title .hl-u{opacity:0;background-size:0% .122em;transition:opacity .9s var(--ease-out),background-size .9s var(--ease-out)}
 .motion .hardest-title.is-in .hl-u{opacity:1;background-size:100% .122em;transition-delay:.45s,.45s}

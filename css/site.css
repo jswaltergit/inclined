@@ -439,7 +439,7 @@ main{animation:fade .45s ease both}
 .motion .hardest-mark{opacity:0;transform:translateY(40px) scale(.97);transition:opacity 1.8s var(--ease-out),transform 2.4s var(--ease-expo)}
 .motion .diff-bg{opacity:0;transform:scale(1.06);transition:opacity 2s var(--ease-out),transform 3s var(--ease-expo)}
 /* revealed state */
-.motion .is-in,.motion .is-in :is(img,.eitl-ice,.eitl-coral),.motion .is-in>.rp-coral,.motion .is-in>.rp-teal,.motion .is-in>.rp-img,.motion .is-in .layers2>g,.motion .is-in>.hardest-mark,.motion .is-in>.diff-bg{opacity:1;transform:none}
+.motion .is-in,.motion :is(.eitl-media,.frame,.side-photo).is-in :is(img,.eitl-ice,.eitl-coral),.motion .is-in>.rp-coral,.motion .is-in>.rp-teal,.motion .is-in>.rp-img,.motion .hw-graphic.is-in .layers2>g,.motion .is-in>.hardest-mark,.motion .is-in>.diff-bg{opacity:1;transform:none}
 .motion .hw-rule.is-in{transform:none}
 
 /* hero entrance on load */

@@ -35,7 +35,9 @@
       inView.forEach(function(el,i){el.style.setProperty('--rd',Math.min(i*90,630)+'ms');el.classList.add('rv-anim','is-in');io.unobserve(el);
         setTimeout(function(){el.classList.remove('rv-anim');el.style.removeProperty('--rd');},2200);});
     },{rootMargin:'0px 0px -8% 0px',threshold:0.12});
-    els.forEach(function(el){io.observe(el);});
+    // the layered graphic waits until most of it is on screen so the build is seen
+    var io2=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io2.unobserve(e.target);}});},{rootMargin:'0px 0px -10% 0px',threshold:0.6});
+    els.forEach(function(el){if(el.classList.contains('hw-graphic'))io2.observe(el);else io.observe(el);});
   })();
 
   // Hero: starts framed, then eases out to full bleed (and the photo zooms in) as you scroll

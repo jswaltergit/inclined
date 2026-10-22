@@ -79,10 +79,14 @@
     links.forEach(function(a){var id=a.getAttribute('href').split('#')[1];var sec=document.getElementById(id);if(sec)map[id]=a;});
     function set(id){links.forEach(function(a){a.classList.toggle('is-active',a===map[id]);if(a===map[id])a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
       var a=map[id];if(a){var l=a.offsetLeft-bar.offsetLeft,r=l+a.offsetWidth;if(l<bar.scrollLeft||r>bar.scrollLeft+bar.clientWidth)bar.scrollTo({left:l-16,behavior:'smooth'});}}
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(e.target.id);});},{rootMargin:'-40% 0px -55% 0px'});
-    Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
-    // above the first capability nothing is selected
-    window.addEventListener('scroll',function(){var first=document.getElementById(Object.keys(map)[0]);if(first&&first.getBoundingClientRect().top>innerHeight*.4)set(null);},{passive:true});
+    // the active capability is the last section whose top has passed a line just under the bar;
+    // as soon as the bar pins, the first capability is active
+    var wrapBar=bar.closest('.cap-index-bar'),ids=Object.keys(map),cur,tick=false;
+    function upd(){tick=false;var bb=wrapBar.getBoundingClientRect(),line=bb.bottom+Math.min(200,innerHeight*.25),pinned=bb.top<=parseFloat(getComputedStyle(wrapBar).top)+1,id=null;
+      ids.forEach(function(k){if(document.getElementById(k).getBoundingClientRect().top<=line)id=k;});
+      if(!pinned)id=null;else if(!id)id=ids[0];if(id!==cur){cur=id;set(id);}}
+    window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+    window.addEventListener('resize',upd);upd();
   })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){

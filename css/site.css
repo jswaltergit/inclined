@@ -500,10 +500,10 @@ main{animation:fade .45s ease both}
 .cap-hero .eyebrow::before{background:var(--teal)}
 @media (max-width:860px){.cap-hero::before{background:linear-gradient(180deg,rgba(9,51,96,.6),rgba(9,51,96,.35))}.cap-band.cb1{height:34%}.cap-band.cb2{height:18%}}
 /* sticky capability index: pins under the header; the section in view is filled ocean */
-.cap-index-bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-s));z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.cap-index-bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-s));z-index:40;background:var(--navy)}
 .cap-index{display:flex;gap:8px;align-items:center;min-height:var(--capbar-h);overflow-x:auto;scrollbar-width:none;padding-block:12px}
 .cap-index::-webkit-scrollbar{display:none}
-.cap-index a{flex:none;white-space:nowrap;font-size:.875rem;line-height:1;text-decoration:none;padding:12px 16px 10px;color:var(--navy);border:1px solid var(--rule);border-radius:0 2px 2px 2px;
+.cap-index a{flex:none;white-space:nowrap;font-size:.875rem;line-height:1;text-decoration:none;padding:12px 16px 10px;color:var(--white);border:1px solid rgba(255,255,255,.28);border-radius:0 2px 2px 2px;
   transition:background-color .35s var(--ease-out,ease),color .35s var(--ease-out,ease),border-color .35s var(--ease-out,ease)}
-.cap-index a:hover{border-color:var(--ocean);color:var(--ocean)}
+.cap-index a:hover{border-color:var(--ocean);color:var(--white);background:rgba(37,155,187,.22)}
 .cap-index a.is-active{background:var(--ocean);border-color:var(--ocean);color:var(--white)}

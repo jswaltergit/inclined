@@ -607,7 +607,7 @@ main{animation:fade .45s ease both}
 @media (max-width:600px){.principles.four-up{grid-template-columns:1fr}}
 .look-sec{padding-bottom:clamp(24px,3vw,48px)}
 /* light version of the tiles */
-.find-light{background:var(--white)}
+.find-light{background:var(--offwhite)}
 .find-light .h-l{color:var(--navy)}
 .find-light .principles .p{border-top-color:var(--rule)}
 .find-light .principles h3{color:var(--navy)}

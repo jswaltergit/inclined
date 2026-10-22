@@ -615,3 +615,6 @@ main{animation:fade .45s ease both}
 .rp-end{padding-bottom:clamp(64px,8vw,128px)}
 .tenure-row .tenure-wrap{margin-left:calc(-1 * (clamp(96px,9vw,150px) + clamp(20px,2.4vw,36px)))}
 @media (max-width:860px){.tenure-row .tenure-wrap{margin-left:0}}
+.tenure-wrap .tenure{display:flex;align-items:flex-start;gap:clamp(14px,1.6vw,24px)}
+.tenure-wrap .tenure b{color:var(--ocean)}
+.tenure-wrap .tenure span{font-size:clamp(1.25rem,1rem + .9vw,1.75rem);line-height:1.15;font-weight:700;color:var(--navy);padding-top:.32em}

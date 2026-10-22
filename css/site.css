@@ -230,7 +230,8 @@ img{max-width:100%;display:block}
 .frame{z-index:0}
 @media (max-width:860px){.frame::before{right:-8px;top:-8px}}
 /* Expert in the Loop image treatment (Figma): 45-degree cut top-left, rounded corners, ice band over the left edge, coral corner */
-.eitl-media{position:relative;margin-left:10%}
+.eitl-media{position:relative;margin-left:0}
+.band:has(.eitl-media){overflow-x:clip}
 .eitl-photo{position:relative;overflow:hidden;aspect-ratio:783/956;border-radius:0 15px 15px 15px;clip-path:polygon(7.47% 0,100% 0,100% 100%,0 100%,0 6.12%)}
 .eitl-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .eitl-coral{position:absolute;right:0;bottom:0;width:29%;aspect-ratio:1/1;background:var(--coral);clip-path:polygon(100% 0,100% 100%,0 100%)}

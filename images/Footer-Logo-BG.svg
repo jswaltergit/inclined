@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 973.5509794 960.9203218">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st1 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="792.5153347" y1="867.6460393" x2="896.4567057" y2="311.6804717" gradientTransform="translate(0 1000.0598556) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3dbfb9" stop-opacity=".25"/>
+      <stop offset=".9559938" stop-color="#243772" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="197.5822739" y1="421.7975245" x2="755.51607" y2="979.7313949" gradientTransform="translate(0 1000.0598556) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3dbfb9" stop-opacity=".05"/>
+      <stop offset=".9579758" stop-color="#243772" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="708.623975" y1="284.0411529" x2="65.6805848" y2="284.0411529" gradientTransform="translate(0 1000.0598556) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3dbfb9" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#243772" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path class="st2" d="M593.3284852.9188359l-.4645917.1662688c71.3537228,7.5261069,135.7829195,65.1822418,135.7829195,149.690787v565.2404597c135.2547102,0,244.9041011-109.6444923,244.9041011-244.8992024l-1.1956721-297.8295747c-.3826203-95.3083388-77.7529789-172.3687164-173.0620769-172.3687164h-205.9646799v-.0000218Z"/>
+  <path class="st1" d="M163.9540595,716.0358808l.0146634-.0195294L728.646813,151.1328755v-.3569838c0-134.0566295-162.0826769-201.1949729-256.8754531-106.4022212L57.5230381,468.1708811c-66.2086334,67.7348323-76.4322105,172.3888011-24.5841527,251.65652l111.8209167,170.9569468s-55.7577652-99.7964283,19.1942573-174.7484671Z"/>
+  <path class="st0" d="M728.8571301,715.9966913v.0195948H163.9687229l-.0146308.0195948c-67.7365959,67.7364652-28.7217348,155.7557255-20.5816805,172.07633,23.9935197,42.2485186,68.8446141,72.8081111,125.2136378,72.8081111h503.0575407c111.5103704,0,201.9073893-90.3970189,201.9073893-201.9073893v-287.8958489c0,135.1813604-109.5418811,244.7623004-244.6938494,244.8796077Z"/>
+</svg>

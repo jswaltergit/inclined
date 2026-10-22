@@ -395,11 +395,12 @@ fieldset{border:0;margin:0;padding:0}
 .pending{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--ink-3);border:1px dashed rgba(9,51,96,.35);padding:14px 18px;border-radius:2px}
 
 /* footer */
-.site-foot{background:var(--navy);color:var(--on-navy-2);padding-block:72px 36px;font-size:.9375rem}
+.site-foot{background:url(../images/Footer-Logo-BG.svg) no-repeat right clamp(-120px,-4vw,-40px) center / auto 125%,var(--navy);overflow:hidden;color:var(--on-navy-2);padding-block:72px 36px;font-size:.9375rem}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
 .foot-grid .logo{width:150px;transition:none}
 .signoff{font-size:1.25rem;font-weight:700;color:var(--white);margin-top:24px;letter-spacing:-.01em}
 .signoff span{color:var(--teal)}
+@media (max-width:720px){.site-foot{background:url(../images/Footer-Logo-BG.svg) no-repeat right -60px bottom -40px / auto 62%,var(--navy)}}
 .site-foot h4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
 .site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .site-foot a{text-decoration:none;color:var(--on-navy-2)}

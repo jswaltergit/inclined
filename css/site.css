@@ -412,3 +412,46 @@ main{animation:fade .45s ease both}
 .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:var(--white);padding:10px 14px;z-index:99}
 .skip:focus{left:16px}
 [hidden]{display:none!important}
+
+/* ---------- Motion: page entrance + scroll reveals (skipped for reduced-motion users) ---------- */
+:root{--ease-out:cubic-bezier(.22,.61,.36,1);--ease-expo:cubic-bezier(.16,1,.3,1)}
+.motion main section:not(.hero) :is(.eyebrow,.hw-eyebrow,h1,h2,.lede,.prose,.body-hw,.hardest-body,.hw-body,.purpose,.quote,.textlink,.cap-grid>*,.diff>li,.three>*,.timeline>*,.people>*,.stat,.rp-card,div:has(>.btn),form):not(.is-in){
+  opacity:0;transform:translateY(28px)}
+.motion .rv-anim{transition:opacity .9s var(--ease-out),transform 1.1s var(--ease-expo)!important;transition-delay:var(--rd,0ms)!important}
+.motion main section:not(.hero) :is(.eyebrow,.hw-eyebrow):not(.is-in){transform:translateX(-16px)}
+/* lines draw across */
+.motion .hw-rule,.motion .diff{transition:transform 1.4s var(--ease-expo),border-color 1.4s var(--ease-out)}
+.motion .hw-rule{transform:scaleX(0);transform-origin:left center;transition-delay:var(--rd,0ms)}
+/* photos settle in */
+.motion :is(.eitl-photo,.frame,.side-photo){overflow:hidden}
+.motion :is(.eitl-photo,.frame,.side-photo) img{transform:scale(1.12);opacity:0;transition:transform 1.8s var(--ease-expo),opacity 1.1s var(--ease-out);transition-delay:var(--rd,0ms)}
+.motion .eitl-ice{opacity:0;transform:translate(-40px,40px);transition:opacity .9s var(--ease-out) .35s,transform 1.3s var(--ease-expo) .35s}
+.motion .eitl-coral{transform:translate(40%,40%);transition:transform 1.3s var(--ease-expo) .5s}
+.motion .rp-coral{transform:translate(18vw,-18vw);opacity:0;transition:transform 1.6s var(--ease-expo) .2s,opacity 1s var(--ease-out) .2s}
+.motion .rp-teal{transform:translate(-10vw,-10vw);transition:transform 1.6s var(--ease-expo)}
+.motion .rp-img{transform:scale(1.08);transition:transform 2.4s var(--ease-expo)}
+/* How We Work layers slide in from the right, one after another */
+.motion .layers2>g{opacity:0;transform:translateX(60px);transition:opacity .8s var(--ease-out),transform 1.2s var(--ease-expo)}
+.motion .layers2>g:nth-of-type(1){transition-delay:.45s}.motion .layers2>g:nth-of-type(2){transition-delay:.3s}.motion .layers2>g:nth-of-type(3){transition-delay:.15s}.motion .layers2>g:nth-of-type(4){transition-delay:0s}
+.motion .hardest-mark{opacity:0;transform:translateY(40px) scale(.97);transition:opacity 1.8s var(--ease-out),transform 2.4s var(--ease-expo)}
+.motion .diff-bg{opacity:0;transform:scale(1.06);transition:opacity 2s var(--ease-out),transform 3s var(--ease-expo)}
+/* revealed state */
+.motion .is-in,.motion .is-in :is(img,.eitl-ice,.eitl-coral),.motion .is-in>.rp-coral,.motion .is-in>.rp-teal,.motion .is-in>.rp-img,.motion .is-in .layers2>g,.motion .is-in>.hardest-mark,.motion .is-in>.diff-bg{opacity:1;transform:none}
+.motion .hw-rule.is-in{transform:none}
+
+/* hero entrance on load */
+@keyframes rv-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes rv-band{from{transform:translate(45%,45%)}to{transform:none}}
+@keyframes rv-settle{from{transform:scale(1.1)}to{transform:none}}
+@keyframes rv-fade{from{opacity:0}to{opacity:1}}
+.motion .hero-img{animation:rv-settle 2.6s var(--ease-expo) both}
+.motion .hero-frame{animation:rv-fade 1s var(--ease-out) both}
+.motion .hero h1.tag span,.motion .hero-copy>:not(h1){animation:rv-up 1.1s var(--ease-expo) both}
+.motion .hero h1.tag span:nth-child(1){animation-delay:.25s}.motion .hero h1.tag span:nth-child(2){animation-delay:.4s}
+.motion .hero-copy>:nth-child(2){animation-delay:.6s}.motion .hero-copy>:nth-child(3){animation-delay:.72s}.motion .hero-copy>:nth-child(4){animation-delay:.84s}
+.motion .hero-band.b1{animation:rv-band 1.5s var(--ease-expo) .35s both}
+.motion .hero-band.b2{animation:rv-band 1.5s var(--ease-expo) .55s both}
+/* images fade in as they finish loading */
+.motion img[loading="lazy"]:not(.is-loaded){opacity:0}
+.motion img[loading="lazy"]{transition:opacity .8s var(--ease-out)}
+@media (prefers-reduced-motion:reduce){.motion *{animation:none!important;transition:none!important}}

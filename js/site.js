@@ -63,6 +63,14 @@
       anims.forEach(function(a){a._on=true;setTimeout(function(){try{a.beginElement();}catch(e){a._on=false;}},+a.getAttribute('data-delay')||0);});}
     link.addEventListener('mouseenter',play);link.addEventListener('focus',play);
   })();
+
+  // Closing CTA + footer share one background mark: measure them so it lines up across both
+  (function(){
+    var foot=document.querySelector('.site-foot');if(!foot)return;var cta=document.querySelector('.cta');var root=document.documentElement;
+    function m(){var ch=cta?cta.getBoundingClientRect().height:0,fh=foot.getBoundingClientRect().height;
+      root.style.setProperty('--cta-h',ch+'px');root.style.setProperty('--end-h',(ch+fh)+'px');}
+    m();window.addEventListener('load',m);if('ResizeObserver' in window){var ro=new ResizeObserver(m);ro.observe(foot);if(cta)ro.observe(cta);}else window.addEventListener('resize',m);
+  })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

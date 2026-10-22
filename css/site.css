@@ -395,12 +395,11 @@ fieldset{border:0;margin:0;padding:0}
 .pending{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--ink-3);border:1px dashed rgba(9,51,96,.35);padding:14px 18px;border-radius:2px}
 
 /* footer */
-.site-foot{background:url(../images/Footer-Logo-BG.svg) no-repeat right clamp(-120px,-4vw,-40px) center / auto 125%,var(--navy);overflow:hidden;color:var(--on-navy-2);padding-block:72px 36px;font-size:.9375rem}
+.site-foot{background:var(--navy);overflow:hidden;color:var(--on-navy-2);padding-block:72px 36px;font-size:.9375rem}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
 .foot-grid .logo{width:150px;transition:none}
 .signoff{font-size:1.25rem;font-weight:700;color:var(--white);margin-top:24px;letter-spacing:-.01em}
 .signoff span{color:var(--teal)}
-@media (max-width:720px){.site-foot{background:url(../images/Footer-Logo-BG.svg) no-repeat right -60px bottom -40px / auto 62%,var(--navy)}}
 .site-foot h4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
 .site-foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .site-foot a{text-decoration:none;color:var(--on-navy-2)}
@@ -480,3 +479,12 @@ main{animation:fade .45s ease both}
 /* Section 2 headline lands in two beats: the setup first, then "Making Them Work." with its underline drawing in */
 .motion .hardest-title .hl-u{opacity:0;background-size:0% .122em;transition:opacity .9s var(--ease-out),background-size .9s var(--ease-out)}
 .motion .hardest-title.is-in .hl-u{opacity:1;background-size:100% .122em;transition-delay:.45s,.45s}
+
+/* one faint logomark spans the closing CTA and the footer: JS measures both (--cta-h, --end-h) so the halves line up */
+:root{--cta-h:0px;--end-h:100%}
+.cta,.site-foot{background-image:url(../images/Footer-Logo-BG.svg);background-repeat:no-repeat;background-size:auto calc(var(--end-h) * 1.05)}
+.cta{background-position:right clamp(-140px,-5vw,-40px) top calc(var(--end-h) * -.025)}
+.site-foot{background-position:right clamp(-140px,-5vw,-40px) top calc(var(--end-h) * -.025 - var(--cta-h))}
+@media (max-width:720px){.cta,.site-foot{background-size:auto calc(var(--end-h) * .6)}
+  .cta{background-position:right -70px top calc(var(--end-h) * .3)}
+  .site-foot{background-position:right -70px top calc(var(--end-h) * .3 - var(--cta-h))}}

@@ -290,15 +290,11 @@ html{scroll-padding-top:80px}
 @media (max-width:860px){.cta .wrap{grid-template-columns:1fr}}
 
 /* capabilities page */
-.cap-index{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.cap-index a{font-weight:400;font-size:.875rem;text-decoration:none;padding:8px 14px;border:1px solid rgba(255,255,255,.3);color:var(--white)}
-.cap-index a:hover{background:var(--teal);border-color:var(--teal);color:var(--navy)}
-.capability{padding-block:var(--sp-section);border-top:1px solid var(--rule);scroll-margin-top:96px}
+.capability{padding-block:var(--sp-section);border-top:1px solid var(--rule);scroll-margin-top:calc(var(--head-s) + var(--capbar-h) + 8px)}
 .capability:first-of-type{border-top:0}
 .cap-layout{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,80px)}
-.cap-head{position:sticky;top:calc(env(safe-area-inset-top,0px) + 108px);align-self:start;display:grid;gap:16px}
-.cap-num{font-size:var(--step--1);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:10px}
-.cap-num::before{content:"";width:12px;height:12px;background:var(--teal);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.cap-head{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-s) + var(--capbar-h) + 32px);align-self:start;display:grid;gap:16px}
+.cap-head-icon{display:block;width:auto;height:clamp(40px,3.2vw,48px);max-width:60px;object-fit:contain;object-position:left center;margin-bottom:4px}
 .cap-head h2{font-size:var(--step-3)}
 .cap-head .tagline{font-size:var(--step-1);font-weight:400;color:var(--ink-2);line-height:1.45;max-width:26ch}
 .cap-body{display:grid;gap:40px;min-width:0}
@@ -488,3 +484,26 @@ main{animation:fade .45s ease both}
 @media (max-width:720px){.cta,.site-foot{background-size:auto calc(var(--end-h) * .6)}
   .cta{background-position:right -70px top calc(var(--end-h) * .3)}
   .site-foot{background-position:right -70px top calc(var(--end-h) * .3 - var(--cta-h))}}
+
+/* ---------- Capabilities page ---------- */
+:root{--head-s:calc(clamp(56px,4.4vw,64px) + 1px);--capbar-h:64px}
+.cap-hero{position:relative;overflow:hidden;background:var(--ocean);color:var(--white);padding-block:clamp(72px,9vw,140px) clamp(96px,11vw,170px)}
+.cap-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.cap-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(9,51,96,.55) 0%,rgba(9,51,96,.25) 45%,rgba(9,51,96,0) 70%)}
+.cap-band{position:absolute;right:0;bottom:0;aspect-ratio:1;z-index:2;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.cap-band.cb1{height:78%;background:var(--teal);opacity:.85}
+.cap-band.cb2{height:40%;background:var(--coral)}
+.cap-hero .wrap{position:relative;z-index:3}
+.cap-hero h1{font-size:var(--step-4);max-width:18ch;color:var(--white)}
+.cap-hero .lede{color:rgba(255,255,255,.92);max-width:58ch}
+.cap-hero .eyebrow{color:var(--white)}
+.cap-hero .eyebrow::before{background:var(--teal)}
+@media (max-width:860px){.cap-hero::before{background:linear-gradient(180deg,rgba(9,51,96,.6),rgba(9,51,96,.35))}.cap-band.cb1{height:34%}.cap-band.cb2{height:18%}}
+/* sticky capability index: pins under the header; the section in view is filled ocean */
+.cap-index-bar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--head-s));z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.cap-index{display:flex;gap:8px;align-items:center;min-height:var(--capbar-h);overflow-x:auto;scrollbar-width:none;padding-block:12px}
+.cap-index::-webkit-scrollbar{display:none}
+.cap-index a{flex:none;white-space:nowrap;font-size:.875rem;line-height:1;text-decoration:none;padding:12px 16px 10px;color:var(--navy);border:1px solid var(--rule);border-radius:0 2px 2px 2px;
+  transition:background-color .35s var(--ease-out,ease),color .35s var(--ease-out,ease),border-color .35s var(--ease-out,ease)}
+.cap-index a:hover{border-color:var(--ocean);color:var(--ocean)}
+.cap-index a.is-active{background:var(--ocean);border-color:var(--ocean);color:var(--white)}

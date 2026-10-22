@@ -71,6 +71,19 @@
       root.style.setProperty('--cta-h',ch+'px');root.style.setProperty('--end-h',(ch+fh)+'px');}
     m();window.addEventListener('load',m);if('ResizeObserver' in window){var ro=new ResizeObserver(m);ro.observe(foot);if(cta)ro.observe(cta);}else window.addEventListener('resize',m);
   })();
+
+  // Capabilities: highlight the capability whose section is in view, and keep its chip visible in the bar
+  (function(){
+    var bar=document.querySelector('.cap-index');if(!bar||!('IntersectionObserver' in window))return;
+    var links=[].slice.call(bar.querySelectorAll('a')),map={};
+    links.forEach(function(a){var id=a.getAttribute('href').split('#')[1];var sec=document.getElementById(id);if(sec)map[id]=a;});
+    function set(id){links.forEach(function(a){a.classList.toggle('is-active',a===map[id]);if(a===map[id])a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+      var a=map[id];if(a){var l=a.offsetLeft-bar.offsetLeft,r=l+a.offsetWidth;if(l<bar.scrollLeft||r>bar.scrollLeft+bar.clientWidth)bar.scrollTo({left:l-16,behavior:'smooth'});}}
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)set(e.target.id);});},{rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+    // above the first capability nothing is selected
+    window.addEventListener('scroll',function(){var first=document.getElementById(Object.keys(map)[0]);if(first&&first.getBoundingClientRect().top>innerHeight*.4)set(null);},{passive:true});
+  })();
   var f=document.getElementById('contactForm');if(!f)return;var err=document.getElementById('cf-err'),st=document.getElementById('cf-status');
   f.addEventListener('submit',function(e){
     e.preventDefault();

@@ -455,7 +455,7 @@ main{animation:fade .45s ease both}
 .motion img[loading="lazy"]{transition:opacity .8s var(--ease-out)}
 @media (prefers-reduced-motion:reduce){.motion *{animation:none!important;transition:none!important}}
 
-/* hero: full-bleed on load, eases into its frame as you begin to scroll (JS sets --hp 0..1 and --hs) */
+/* hero: framed at rest, grows to full bleed with a slow photo zoom as you scroll (JS sets --hp 1..0 and --hs) */
 .motion .hero{padding:0}
 .motion .hero-frame{transform-origin:50% 0;scale:var(--hs,1);border-radius:0 calc(8px * var(--hp,1)) calc(8px * var(--hp,1)) calc(8px * var(--hp,1));
   clip-path:polygon(calc(var(--cut) * var(--hp,1)) 0,100% 0,100% 100%,0 100%,0 calc(var(--cut) * var(--hp,1)));will-change:scale}

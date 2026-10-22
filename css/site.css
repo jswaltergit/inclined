@@ -512,3 +512,5 @@ main{animation:fade .45s ease both}
 /* page heroes share the homepage's 45-degree notch at the top left */
 .cap-hero,.page-hero{clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut))}
 .page-hero.rise-bottom{clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+
+.lead-phil{padding-bottom:calc(var(--sp-section) + var(--cut) + clamp(48px,6vw,96px))}

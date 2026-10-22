@@ -588,7 +588,7 @@ main{animation:fade .45s ease both}
 .eitl-media.swap .eitl-coral{background:var(--teal)}
 
 /* ---------- Careers: Why Inclined ---------- */
-.why{padding-bottom:calc(var(--sp-section) + 16px)}
+.why{padding-bottom:0}
 .why-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:start}
 .why-text{max-width:38em;font-size:clamp(1.0625rem,1.3vw,1.25rem);line-height:1.65;color:var(--ink-2)}
 .why .tenure{padding:22px 0 0;border-top:1px solid var(--navy)}
@@ -629,3 +629,8 @@ main{animation:fade .45s ease both}
 .tenure-big span{display:block;margin:clamp(14px,1.4vw,22px) 0 0 calc(var(--n) * 1.08);font-size:clamp(1.25rem,.95rem + 1.1vw,2rem);line-height:1.12;font-weight:700;color:var(--navy)}
 @media (max-width:860px){.tenure-bg{left:-16px}.tenure-big span{margin-left:calc(var(--n) * .9)}}
 .tenure.tenure-big{border-top:0;padding:0}
+/* What We Look For tucks up so its photo overlaps the bottom of the 15+ band */
+.look-sec{position:relative;z-index:1;padding-top:0;margin-top:calc(-1 * clamp(36px,4.5vw,72px))}
+.look-sec .split{align-items:start}
+.look-sec .split>.stack{padding-top:calc(clamp(36px,4.5vw,72px) + clamp(24px,4vw,64px))}
+@media (max-width:860px){.look-sec{margin-top:clamp(24px,6vw,40px)}.look-sec .split>.stack{padding-top:0}}
